@@ -1,0 +1,20 @@
+import { Component, inject } from '@angular/core';
+import { CategoryService } from '../../services/category-service';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+@Component({
+  selector: 'category-list',
+  standalone: false,
+  templateUrl: './category-list.html',
+  styleUrl: './category-list.css',
+})
+export class CategoryList {
+
+private categoryService= inject(CategoryService);
+
+categories = toSignal(this.categoryService.getCategories())
+
+
+
+
+}
