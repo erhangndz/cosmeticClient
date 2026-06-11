@@ -15,6 +15,16 @@ private categoryService= inject(CategoryService);
 categories = toSignal(this.categoryService.getCategories())
 
 
+delete(id){
+  this.categoryService.delete(id).subscribe({
+    complete: ()=> {
+      window.location.reload()
+    },
+    error: err => console.log(err)
+  })
+}
+
+
 
 
 }

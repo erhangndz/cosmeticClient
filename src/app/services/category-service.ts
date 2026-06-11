@@ -20,6 +20,29 @@ getCategories(){
   return this.http.get<Category[]>(this.baseUrl)
 }
 
+getById(id){
+
+  return this.http.get<Category>(this.baseUrl+ id);
+
+}
+
+
+update(id,model:Category){
+
+  return this.http.put(this.baseUrl+id,model);
+}
+
+
+create(model:Category){
+return this.http.post(this.baseUrl,model);
+
+}
+
+delete(id){
+  return this.http.delete(this.baseUrl+id);
+}
+
+
 
 
 

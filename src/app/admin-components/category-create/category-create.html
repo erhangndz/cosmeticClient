@@ -1,0 +1,11 @@
+<h3> Yeni Kategori Oluştur</h3>
+
+
+<form #createForm="ngForm" (ngSubmit)="create()">
+
+<label>Kategori Adı</label>
+<input type="text" name="name" class="form-control" [(ngModel)]="category.name" required="">
+<br>
+<button class="btn btn-dark" type="submit">Kaydet</button>
+
+</form>
