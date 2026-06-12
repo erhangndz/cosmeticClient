@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product-service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'product-list',
@@ -9,15 +11,11 @@ import { Product } from '../../models/product';
 })
 export class ProductList {
 
+private productService = inject(ProductService);
 title:string = "Ürünler Listesi"
 
-//products:string[] = ["Rimel","Ruj","Deodorant"]
 
-products: Product[] = [
-  {id:1,name:"Rimel",price:1500.50,imageUrl:"https://tse1.mm.bing.net/th/id/OIP.TUwf_fKCAqFKJ_sb9KvEVwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"},
-  {id:2,name:"Ruj",price:1000.50,imageUrl:"test.jpg"},
-  {id:3,name:"Deodorant",price:500.50,imageUrl:"test.jpg"}
- ]
+products = toSignal(this.productService.getAll())
 
 
 

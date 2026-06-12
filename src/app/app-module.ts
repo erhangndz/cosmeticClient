@@ -9,9 +9,33 @@ import { provideHttpClient } from '@angular/common/http';
 import { CategoryUpdate } from './admin-components/category-update/category-update';
 import { FormsModule } from '@angular/forms';
 import { CategoryCreate } from './admin-components/category-create/category-create';
+import { AdminLayout } from './layouts/admin-layout/admin-layout';
+import { MainLayout } from './layouts/main-layout/main-layout';
+import { Home } from './main-components/home/home';
+import { MainAbout } from './main-components/main-about/main-about';
+import { MainProduct } from './main-components/main-product/main-product';
+import { MainContact } from './main-components/main-contact/main-contact';
+import { MainBanner } from './main-components/main-banner/main-banner';
+import { MainTestimonial } from './main-components/main-testimonial/main-testimonial';
+import { ProductCreate } from './admin-components/product-create/product-create';
 
 @NgModule({
-  declarations: [App, ProductList, CategoryList, CategoryUpdate, CategoryCreate],
+  declarations: [
+    App,
+    ProductList,
+    CategoryList,
+    CategoryUpdate,
+    CategoryCreate,
+    AdminLayout,
+    MainLayout,
+    Home,
+    MainAbout,
+    MainProduct,
+    MainContact,
+    MainBanner,
+    MainTestimonial,
+    ProductCreate,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],
