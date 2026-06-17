@@ -21,8 +21,8 @@
         <td>{{ item.name }}</td>
         <td>{{ item.price }} TL</td>
         <td>{{ item.category.name }}</td>
-        <td><a class="btn btn-danger">Sil</a> </td>
-        <td><a class="btn btn-info">Güncelle</a> </td>
+        <td><a class="btn btn-danger" (click)="delete(item.id)">Sil</a> </td>
+        <td><a class="btn btn-info" [routerLink]="['update/',item.id]">Güncelle</a> </td>
       </tr>
     }
   </tbody>

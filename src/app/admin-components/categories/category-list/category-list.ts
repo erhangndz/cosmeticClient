@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { CategoryService } from '../../services/category-service';
+import { CategoryService } from '../../../services/category-service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'category-list',
@@ -18,7 +19,9 @@ categories = toSignal(this.categoryService.getCategories())
 delete(id){
   this.categoryService.delete(id).subscribe({
     complete: ()=> {
+
       window.location.reload()
+      alertifyjs.success('Kategori Silindi')
     },
     error: err => console.log(err)
   })

@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { ProductService } from '../../services/product-service';
-import { CategoryService } from '../../services/category-service';
+import { ProductService } from '../../../services/product-service';
+import { CategoryService } from '../../../services/category-service';
 import { Router } from '@angular/router';
-import { Product } from '../../models/product';
+import { Product } from '../../../models/product';
 import { toSignal } from '@angular/core/rxjs-interop';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-product-create',
@@ -23,10 +24,14 @@ export class ProductCreate {
   create(){
     this.productService.create(this.product).subscribe({
       complete: () => {
+
+        alertifyjs.success('Ürün başarıyla eklendi')
         this.router.navigate(['/admin/products'])
       },
 
-      error: err => console.log(err)
+      error: err => {
+        alertifyjs.error('Ürün Eklenemedi')
+        console.log(err)}
     })
   }
 
