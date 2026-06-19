@@ -17,9 +17,6 @@ private router = inject(Router);
 category:Category= new Category();
 
 
-test(){
-
-}
 
 create(){
   this.categoryService.create(this.category).subscribe({

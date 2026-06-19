@@ -15,6 +15,11 @@ getAll(){
   return this.http.get<Product[]>(this.baseUrl);
 }
 
+getLast4Products(){
+  return this.http.get<Product[]>(this.baseUrl+'last4Products');
+}
+
+
 create(model:Product){
   return this.http.post(this.baseUrl,model);
 }
